@@ -3,6 +3,7 @@ import json from '@rollup/plugin-json';
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 import { folderInput } from 'rollup-plugin-folder-input';
 import { terser } from 'rollup-plugin-terser';
+import copy from 'rollup-plugin-copy';
 
 export default {
   input: [
@@ -37,5 +38,11 @@ export default {
       }),
     }),
     terser(),
+    copy({
+      targets: [
+        { src: 'typings/**/*', dest: 'lib/typings' },
+        { src: 'package.json', dest: 'lib' },
+      ]
+    })
   ],
 };
