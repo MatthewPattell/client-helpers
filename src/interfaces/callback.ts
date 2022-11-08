@@ -1,1 +1,1 @@
-export type TCallback = () => void;
+export type TCallback = () => void | undefined;
