@@ -2,23 +2,16 @@ import { useCallback, useMemo, useState } from 'react';
 
 /**
  * Switch between true or false
+ * [isToggled, toggle, close]
  */
-const useToggle = (initialState = false): [boolean, () => void] => {
+const useToggle = (initialState = false): [boolean, () => void, () => void] => {
   const [isToggled, setIsToggled] = useState(initialState);
 
-  const toggle = useCallback(
-    (force?: boolean) =>
-      setIsToggled((prevState) => {
-        if (force !== undefined) {
-          return force;
-        }
+  const toggle = useCallback(() => setIsToggled((prevIsToggled) => !prevIsToggled), []);
 
-        return !prevState;
-      }),
-    [],
-  );
+  const close = useCallback(() => setIsToggled(false), []);
 
-  return useMemo(() => [isToggled, toggle], [isToggled, toggle]);
+  return useMemo(() => [isToggled, toggle, close], [close, isToggled, toggle]);
 };
 
 export default useToggle;
