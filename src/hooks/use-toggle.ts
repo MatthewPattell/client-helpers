@@ -10,7 +10,6 @@ const useToggle = (
   toggle: () => void;
   close: () => void;
   open: () => void;
-  setToggled: (value: boolean) => void;
 } => {
   const [isToggled, setToggled] = useState(initialState);
 
@@ -20,10 +19,7 @@ const useToggle = (
 
   const open = useCallback(() => setToggled(true), []);
 
-  return useMemo(
-    () => ({ isToggled, toggle, close, open, setToggled }),
-    [close, open, isToggled, toggle],
-  );
+  return useMemo(() => ({ isToggled, toggle, close, open }), [close, open, isToggled, toggle]);
 };
 
 export default useToggle;
