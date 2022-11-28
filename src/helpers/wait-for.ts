@@ -11,7 +11,7 @@ const waitFor = async <TCallback>(
   callback: () => Promise<TCallback> | TCallback,
   options: IWaitForOptions = {},
 ): Promise<TCallback> => {
-  const { freq = 150, maxAttempts = 25 } = options;
+  const { freq = 150, maxAttempts = 150 } = options;
   let attempt = 1;
 
   while (!condition()) {
