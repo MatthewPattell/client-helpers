@@ -7,3 +7,5 @@ export * from './replace-properties-return-type';
 export * from './replace-return-type';
 
 export * from './required-props';
+
+export * from './match-key-types';
