@@ -1,1 +1,1 @@
-export type MatchKeyTypes<T, V> = { [K in keyof T]-?: T[K] extends V ? K : never }[keyof T];
+export type MatchKeyTypes<T, TY> = { [K in keyof T]-?: T[K] extends TY ? K : never }[keyof T];
