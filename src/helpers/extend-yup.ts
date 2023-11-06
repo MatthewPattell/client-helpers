@@ -1,4 +1,4 @@
-import { string, addMethod } from 'yup';
+import { string, number, addMethod } from 'yup';
 
 /**
  * ExtendYupValidation
@@ -7,6 +7,9 @@ import { string, addMethod } from 'yup';
 function ExtendYupValidation(): void {
   addMethod(string, 'stripEmptyString', function () {
     return this.transform((value: string) => (value === '' ? null : value));
+  });
+  addMethod(number, 'stripEmptyString', function () {
+    return this.transform((__, value: string) => (value === '' ? null : value));
   });
 }
 
