@@ -8,5 +8,6 @@ declare module 'yup' {
 
   interface NumberSchema {
     stripEmptyString(): BaseNumberSchema;
+    replaceComma(): BaseNumberSchema;
   }
 }
