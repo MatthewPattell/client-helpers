@@ -1,6 +1,7 @@
 import _ from 'lodash';
 import type { IReactionDisposer } from 'mobx';
 import { action, makeObservable, observable, reaction } from 'mobx';
+import getInitialState from './default-state';
 
 export type IRequestReturn<TEntity> =
   | { count?: number; data: TEntity[]; page: number }
@@ -36,23 +37,6 @@ export interface IState {
   orderBy?: string;
 }
 
-export const getInitialState = (): IState => ({
-  error: null,
-  isFetching: false,
-  isFirstRender: true,
-  isFirstPage: true,
-  isLastPage: false,
-  hasPreviousPage: false,
-  hasNextPage: true,
-  pageSize: 20,
-  page: 1,
-  totalPages: 0,
-  count: 0,
-  firstPageNumber: 1,
-  lastPageNumber: 0,
-  pages: [1],
-});
-
 /**
  * Pagination
  */
@@ -87,7 +71,7 @@ class Pagination<TEntity> {
    * Add protection on push duplicates for strict mode if true
    * @private
    */
-  private isLocal: boolean;
+  private readonly isLocal: boolean;
 
   /**
    * @constructor

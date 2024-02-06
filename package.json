@@ -35,8 +35,8 @@
     "prepare": "husky install"
   },
   "devDependencies": {
-    "@commitlint/cli": "^17.6.3",
-    "@commitlint/config-conventional": "^17.6.3",
+    "@commitlint/cli": "^18.6.0",
+    "@commitlint/config-conventional": "^18.6.0",
     "@lomray/eslint-config": "^3.0.0",
     "@lomray/prettier-config": "^1.2.0",
     "@rollup/plugin-json": "^6.0.0",
