@@ -1,6 +1,6 @@
 import type { IState } from './index';
 
-export const getInitialState = (): IState => ({
+const getInitialState = (): IState => ({
   error: null,
   isFetching: false,
   isFirstRender: true,
